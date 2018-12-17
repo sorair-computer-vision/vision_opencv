@@ -13,13 +13,27 @@ if(NOT ANDROID)
 else()
 find_package(Boost REQUIRED)
 endif()
-find_package(OpenCV 3 REQUIRED
+
+find_package(OpenCV 3
   COMPONENTS
     opencv_core
     opencv_imgproc
     opencv_imgcodecs
   CONFIG
 )
+if(NOT OpenCV_FOUND)
+  message(STATUS "Failed to find OpenCV3, trying OpenCV4.")
+  find_package(OpenCV 4
+    COMPONENTS
+      opencv_core
+      opencv_imgproc
+      opencv_imgcodecs
+    CONFIG
+  )
+  if(NOT OpenCV_FOUND)
+    message(FATAL_ERROR "Failed to find OpenCV3 or OpenCV4.")
+  endif()
+endif()
 
 catkin_package(
   INCLUDE_DIRS include
