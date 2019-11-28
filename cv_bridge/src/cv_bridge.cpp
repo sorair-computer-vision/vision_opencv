@@ -33,8 +33,8 @@
 *  POSSIBILITY OF SUCH DAMAGE.
 *********************************************************************/
 
-#include "boost/endian/conversion.hpp"
 
+#include <boost/endian/conversion.hpp>
 #include <map>
 
 #include <boost/make_shared.hpp>
