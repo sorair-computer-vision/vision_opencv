@@ -14,6 +14,8 @@ else()
 find_package(Boost REQUIRED)
 endif()
 
+find_package(Eigen3 REQUIRED)
+
 find_package(OpenCV REQUIRED
   COMPONENTS
     opencv_core
